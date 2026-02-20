@@ -1,0 +1,28 @@
+{
+  "name": "100-day-cognitive-improvement-plan",
+  "version": "1.0.0",
+  "description": "每天学点新东西，用 AI 辅助归纳总结，持续提升认知边界",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "learning",
+    "cognitive-improvement",
+    "100-days",
+    "programming",
+    "notes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@mermaid-js/mermaid-mindmap": "^9.3.0",
+    "mermaid": "^11.12.3",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vue": "^3.5.28"
+  }
+}

@@ -1,0 +1,258 @@
+/* Mermaid 图表样式优化 */
+
+/* 图表容器样式 */
+.mermaid {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  overflow-x: auto;
+}
+
+/* 图表内部 SVG 样式 */
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 节点文字样式优化 */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  stroke-width: 2px;
+}
+
+.mermaid .node .label {
+  font-family: var(--vp-font-family-base);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mermaid .edgeLabel {
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+  background-color: var(--vp-c-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 流程图特定样式 */
+.mermaid .flowchart-link {
+  stroke-width: 2px;
+}
+
+.mermaid .marker {
+  fill: var(--vp-c-brand);
+}
+
+/* 序列图样式优化 */
+.mermaid .actor {
+  stroke-width: 2px;
+}
+
+.mermaid .actor-line {
+  stroke-width: 2px;
+  stroke-dasharray: none;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke-width: 2px;
+}
+
+.mermaid .messageText {
+  font-family: var(--vp-font-family-base);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mermaid .activation0,
+.mermaid .activation1,
+.mermaid .activation2 {
+  fill: var(--vp-c-brand-soft);
+  stroke: var(--vp-c-brand);
+}
+
+/* 甘特图样式优化 */
+.mermaid .section0,
+.mermaid .section1,
+.mermaid .section2,
+.mermaid .section3 {
+  fill-opacity: 0.9;
+}
+
+.mermaid .task0,
+.mermaid .task1,
+.mermaid .task2,
+.mermaid .task3 {
+  stroke-width: 2px;
+}
+
+/* 深色模式特定调整 */
+.dark .mermaid {
+  background: rgba(95, 103, 238, 0.05);
+  border-color: rgba(95, 103, 238, 0.2);
+}
+
+.dark .mermaid .node rect,
+.dark .mermaid .node circle,
+.dark .mermaid .node ellipse,
+.dark .mermaid .node polygon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 浅色模式特定调整 */
+.mermaid {
+  background: rgba(95, 103, 238, 0.03);
+  border-color: rgba(95, 103, 238, 0.15);
+}
+
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .mermaid {
+    padding: 1rem;
+    margin: 1.5rem -0.5rem;
+    border-radius: 8px;
+  }
+  
+  .mermaid svg {
+    min-width: 500px;
+  }
+}
+
+/* 图表标题样式 */
+.mermaid-title {
+  text-align: center;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* 类图样式优化 */
+.mermaid .classGroup rect {
+  stroke-width: 2px;
+  rx: 4;
+  ry: 4;
+}
+
+.mermaid .classGroup .title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mermaid .classGroup .member {
+  font-size: 12px;
+}
+
+/* 状态图样式优化 */
+.mermaid .transition {
+  stroke-width: 2px;
+}
+
+.mermaid .state rect {
+  stroke-width: 2px;
+  rx: 8;
+  ry: 8;
+}
+
+/* ER 图样式优化 */
+.mermaid .entityBox {
+  stroke-width: 2px;
+  rx: 4;
+  ry: 4;
+}
+
+.mermaid .attributeBoxOdd,
+.mermaid .attributeBoxEven {
+  stroke-width: 1px;
+  rx: 2;
+  ry: 2;
+}
+
+/* 用户旅程图样式 */
+.mermaid .journey-section {
+  font-family: var(--vp-font-family-base);
+  font-weight: 600;
+}
+
+.mermaid .journey-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Git 图样式优化 */
+.mermaid .commit {
+  stroke-width: 2px;
+}
+
+.mermaid .commit-label {
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+}
+
+/* 饼图样式优化 */
+.mermaid .pieTitleText {
+  font-family: var(--vp-font-family-base);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mermaid .slice {
+  stroke-width: 2px;
+  stroke: var(--vp-c-bg);
+}
+
+/* 时序图参与者样式 */
+.mermaid .participant {
+  stroke-width: 2px;
+}
+
+.mermaid .participantText {
+  font-weight: 600;
+}
+
+/* 子图/分组样式 */
+.mermaid .cluster rect {
+  rx: 8;
+  ry: 8;
+  stroke-dasharray: 5,5;
+}
+
+/* 注释样式 */
+.mermaid .note {
+  stroke-width: 1px;
+  rx: 4;
+  ry: 4;
+}
+
+.mermaid .noteText {
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+}
+
+/* 循环和条件样式 */
+.mermaid .loopLine {
+  stroke-width: 2px;
+  stroke-dasharray: 5,5;
+}
+
+/* 优化代码块和图表的间距 */
+.vp-doc .mermaid + div[class*="language-"] {
+  margin-top: 2rem;
+}
+
+.vp-doc div[class*="language-"] + .mermaid {
+  margin-top: 2rem;
+}
