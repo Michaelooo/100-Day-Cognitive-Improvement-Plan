@@ -1,4 +1,44 @@
-/* Mermaid 图表样式优化 */
+/* ============================================
+   布局调整 - 缩小右侧 TOC 宽度
+   ============================================ */
+
+/* 缩小右侧大纲（TOC）宽度，释放中间内容空间 */
+.VPDoc .container {
+  max-width: 100% !important;
+}
+
+/* 缩小右侧 TOC 容器宽度（默认 256px → 180px） */
+.VPDocOutline {
+  width: 180px !important;
+  padding-left: 16px !important;
+}
+
+/* 缩小 TOC 内部列表项字体 */
+.VPDocOutlineItem {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 调整中间内容区域的最大宽度 */
+.VPDoc .content-container {
+  max-width: 860px !important;
+}
+
+/* 响应式调整 - 平板和移动端 */
+@media (max-width: 1024px) {
+  .VPDocOutline {
+    display: none;
+  }
+
+  .VPDoc .content-container {
+    max-width: 100% !important;
+    padding: 0 20px;
+  }
+}
+
+/* ============================================
+   Mermaid 图表样式优化
+   ============================================ */
 
 /* 图表容器样式 */
 .mermaid {

@@ -109,3 +109,53 @@ Reference the full curriculum in `docs/plan-1/100-days-hardcore-dev-plan.md` for
 ## Language
 
 All content should be in **中文** (Chinese), as this is a Chinese-language learning journal.
+
+---
+
+## Troubleshooting
+
+### VitePress 编译错误：Vue 模板解析冲突
+
+**问题症状**
+
+```
+Error parsing JavaScript expression: Unexpected token
+```
+
+**根本原因**
+
+VitePress 使用 Vue 编译 Markdown。Vue 会将 `{{ }}` 解析为 JavaScript 插值表达式。当文档中包含其他语法的花括号（如 Docker 模板 `{{.State.Pid}}`、bash 表达式等）时，会导致解析失败。
+
+**解决方案**
+
+| 场景 | 解决方案 | 示例 |
+|------|----------|------|
+| **代码块** | 使用 `::: v-pre` 容器包裹 | 见下方示例 |
+| **表格中的行内代码** | 使用 HTML 实体转义 | `'&#123;&#123;.State.Pid&#125;&#125;'` |
+| **普通行内代码** | 使用 `v-pre` 指令或 HTML 实体 | 同上 |
+
+**代码块解决方案示例**
+
+```markdown
+::: v-pre
+
+```bash
+docker inspect -f '{{.State.Pid}}' <container>
+tcpdump -i any 'tcp[tcpflags] & tcp-syn != 0'
+```
+
+:::
+```
+
+**HTML 实体参考**
+
+| 字符 | HTML 实体 |
+|------|-----------|
+| `{` | `&#123;` |
+| `}` | `&#125;` |
+| `{{` | `&#123;&#123;` |
+| `}}` | `&#125;&#125;` |
+
+**相关案例**
+
+- [2026-02-24-容器网络排查.md](docs/plan-1/2026-02-24-容器网络排查.md) - 多处代码块使用 `v-pre` 修复
