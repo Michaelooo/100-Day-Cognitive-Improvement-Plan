@@ -11,9 +11,14 @@ This is a 100-day cognitive improvement plan focused on learning hardcore develo
 ```
 /
 ├── README.md                      # Overview of the 100-day plan
-└── plan-1/                        # Daily learning notes
-    ├── 100-days-hardcore-dev-plan.md  # Full 100-day curriculum reference
-    └── YYYY-MM-DD-主题.md         # Daily notes (date-stamped)
+└── docs/                          # VitePress documentation site
+    ├── .vitepress/                # VitePress config
+    ├── plan-1/                    # Daily learning notes
+    │   ├── index.md               # Plan overview
+    │   ├── 100-days-hardcore-dev-plan.md  # Full 100-day curriculum
+    │   └── YYYY-MM-DD-主题.md     # Daily notes (date-stamped)
+    ├── index.md                   # Site homepage
+    └── public/                    # Static assets
 ```
 
 ## Daily Note Format
@@ -74,7 +79,7 @@ When adding or updating daily notes, follow this structured format:
 
 Daily notes should be named: `YYYY-MM-DD-主题.md`
 
-Place them in the `plan-1/` directory.
+Place them in the `docs/plan-1/` directory.
 
 ## Content Organization Principles
 
@@ -99,7 +104,7 @@ The 100-day plan is divided into 8 stages:
 | 第七阶段 | 81-90 | 前沿技术 |
 | 第八阶段 | 91-100 | 综合实战 |
 
-Reference the full curriculum in `plan-1/100-days-hardcore-dev-plan.md` for detailed daily topics.
+Reference the full curriculum in `docs/plan-1/100-days-hardcore-dev-plan.md` for detailed daily topics.
 
 ## Language
 

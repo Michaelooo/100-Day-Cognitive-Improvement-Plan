@@ -63,7 +63,7 @@ flowchart TD
 
 **问题 1：学习主题**
 
-- 如果用户提到"第 X 天"或"Day X"，读取 `plan-1/100-days-hardcore-dev-plan.md` 获取当天主题
+- 如果用户提到"第 X 天"或"Day X"，读取 `docs/plan-1/100-days-hardcore-dev-plan.md` 获取当天主题
 - 否则询问用户想学习什么主题
 
 **问题 2：关注重点**（多选）
@@ -254,7 +254,7 @@ flowchart LR
 ### 文档命名规范
 
 ```
-plan-1/YYYY-MM-DD-{主题}.md
+docs/plan-1/YYYY-MM-DD-{主题}.md
 ```
 
 ### 内容组织原则
@@ -407,7 +407,7 @@ Claude: [触发 daily-learning 技能]
 
 让我帮你整理第四天的学习内容。
 
-[读取 plan-1/100-days-hardcore-dev-plan.md]
+[读取 docs/plan-1/100-days-hardcore-dev-plan.md]
 第四天的主题是"HTTP 调试进阶"，主要学习 HTTP/HTTPS 流量的拦截、修改和重放。
 
 **请回答以下问题：**
@@ -425,7 +425,7 @@ Claude: [触发 daily-learning 技能]
 
 [收集用户回答后，开始搜索和生成文档...]
 
-✅ 文档已生成：plan-1/2026-02-19-HTTP调试进阶.md
+✅ 文档已生成：docs/plan-1/2026-02-19-HTTP调试进阶.md
 
 内容概览：
 ├── 第一部分：HTTP/HTTPS 拦截原理

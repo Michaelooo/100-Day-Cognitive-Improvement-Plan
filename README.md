@@ -49,7 +49,6 @@
 │   │   └── YYYY-MM-DD-主题.md     # 每日学习笔记
 │   ├── index.md                   # 网站首页
 │   └── public/                    # 静态资源
-├── plan-1/                        # 原始笔记目录（同步到 docs/plan-1/）
 ├── .github/workflows/             # GitHub Actions 部署配置
 ├── package.json                   # 依赖配置
 └── README.md                      # 本文件
