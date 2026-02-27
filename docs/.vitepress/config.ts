@@ -44,7 +44,7 @@ export default withMermaid({
       },
       { 
         text: 'GitHub',
-        link: 'https://github.com/your-username/100-Day-Cognitive-Improvement-Plan'
+        link: 'https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan'
       }
     ],
     
@@ -57,7 +57,7 @@ export default withMermaid({
     
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/100-Day-Cognitive-Improvement-Plan' }
+      { icon: 'github', link: 'https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan' }
     ],
     
     // 搜索配置
@@ -94,7 +94,7 @@ export default withMermaid({
     
     // 编辑链接
     editLink: {
-      pattern: 'https://github.com/your-username/100-Day-Cognitive-Improvement-Plan/edit/main/docs/:path',
+      pattern: 'https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
     
@@ -146,7 +146,7 @@ export default withMermaid({
   
   // 生成 sitemap
   sitemap: {
-    hostname: 'https://your-username.github.io/100-Day-Cognitive-Improvement-Plan/'
+    hostname: 'https://Michaelooo.github.io/100-Day-Cognitive-Improvement-Plan/'
   },
 
   // Mermaid 插件配置

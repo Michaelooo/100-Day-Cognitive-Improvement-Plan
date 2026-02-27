@@ -2,7 +2,7 @@
 
 > 每天学点新东西，用 AI 辅助归纳总结，持续提升认知边界
 
-🌐 **[在线预览网站](https://your-username.github.io/100-Day-Cognitive-Improvement-Plan/)**
+🌐 **[在线预览网站](https://michaelooo.github.io/100-Day-Cognitive-Improvement-Plan/)**
 
 ---
 

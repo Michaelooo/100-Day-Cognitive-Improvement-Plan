@@ -28,8 +28,8 @@ git add .
 # 提交
 git commit -m "Initial commit: VitePress documentation site"
 
-# 添加远程仓库（替换 your-username 为你的 GitHub 用户名）
-git remote add origin https://github.com/your-username/100-Day-Cognitive-Improvement-Plan.git
+# 添加远程仓库（替换 Michaelooo 为你的 GitHub 用户名）
+git remote add origin https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan.git
 
 # 推送
 git push -u origin main
@@ -44,7 +44,7 @@ git push -u origin main
 
 ## 步骤 4：更新配置文件中的用户名
 
-在以下文件中，将 `your-username` 替换为你的 GitHub 用户名：
+在以下文件中，将 `Michaelooo` 替换为你的 GitHub 用户名：
 
 1. `docs/.vitepress/config.ts` - 第 14 行 `base` 和第 87 行 `editLink`
 2. `docs/index.md` - 所有 GitHub 链接
@@ -63,7 +63,7 @@ git push -u origin main
 部署完成后，你的网站将可以通过以下地址访问：
 
 ```
-https://your-username.github.io/100-Day-Cognitive-Improvement-Plan/
+https://Michaelooo.github.io/100-Day-Cognitive-Improvement-Plan/
 ```
 
 ## 本地开发
@@ -92,7 +92,7 @@ npm run docs:preview
 
 1. 在 `docs/public/` 目录下创建名为 `CNAME` 的文件
 2. 在文件中写入你的域名，例如：`learning.yourdomain.com`
-3. 在你的域名 DNS 设置中添加 CNAME 记录，指向 `your-username.github.io`
+3. 在你的域名 DNS 设置中添加 CNAME 记录，指向 `Michaelooo.github.io`
 4. 在 `docs/.vitepress/config.ts` 中更新 `base` 为 `/`
 
 ## 添加新的学习计划

@@ -17,7 +17,7 @@ hero:
       link: /plan-1/100-days-hardcore-dev-plan
     - theme: alt
       text: GitHub
-      link: https://github.com/your-username/100-Day-Cognitive-Improvement-Plan
+      link: https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan
 
 features:
   - icon: 🚀
@@ -109,4 +109,4 @@ features:
 
 ---
 
-*本网站使用 [VitePress](https://vitepress.dev/) 构建，源代码托管于 [GitHub](https://github.com/your-username/100-Day-Cognitive-Improvement-Plan)*
+*本网站使用 [VitePress](https://vitepress.dev/) 构建，源代码托管于 [GitHub](https://github.com/Michaelooo/100-Day-Cognitive-Improvement-Plan)*
