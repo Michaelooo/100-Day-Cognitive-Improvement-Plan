@@ -19,13 +19,59 @@
 Linux Namespace 是 Linux 内核提供的一种资源隔离机制，是容器技术的基石。通过 Namespace，可以让进程在隔离的环境中运行，就像拥有独立的系统一样。
 
 **核心 Namespace 类型：**
-- **PID Namespace** - 进程ID隔离
-- **Mount Namespace** - 文件系统视图隔离
-- **Network Namespace** - 网络栈隔离
-- **IPC Namespace** - 进程间通信隔离
-- **UTS Namespace** - 主机名和域名隔离
-- **User Namespace** - 用户和用户组隔离
-- **Cgroup Namespace** - 资源控制隔离
+
+| Namespace | 隔离内容 | 典型应用场景 |
+|-----------|----------|--------------|
+| **PID** | 进程 ID | 容器内进程从 PID 1 开始 |
+| **Mount** | 文件系统视图 | 容器独立根文件系统 |
+| **Network** | 网络栈 | 容器独立 IP、端口 |
+| **IPC** | 进程间通信 | 隔离信号量、消息队列 |
+| **UTS** | 主机名/域名 | 容器独立 hostname |
+| **User** | 用户/用户组 | 容器内 root 映射宿主机普通用户 |
+| **Cgroup** | 资源控制视图 | 隔离 cgroup 层级 |
+
+### Namespace 与容器的关系
+
+```mermaid
+graph TB
+    subgraph 宿主机
+        A[Host Kernel] --> B[Namespace 隔离层]
+        B --> C[Container A]
+        B --> D[Container B]
+        B --> E[Container C]
+    end
+
+    subgraph ContainerA [Container A - 隔离视图]
+        C1[PID: 1-100]
+        C2[独立网络栈]
+        C3[独立文件系统]
+    end
+
+    subgraph ContainerB [Container B - 隔离视图]
+        D1[PID: 1-50]
+        D2[独立网络栈]
+        D3[独立文件系统]
+    end
+
+    C --> ContainerA
+    D --> ContainerB
+```
+
+### Namespace 创建流程
+
+```mermaid
+sequenceDiagram
+    participant U as 用户/脚本
+    participant K as Linux Kernel
+    participant N as New Namespace
+    participant P as 新进程
+
+    U->>K: unshare(CLONE_NEWPID \| CLONE_NEWNET)
+    K->>N: 创建新 Namespace
+    N->>P: fork() 子进程
+    P->>P: 在隔离环境中运行
+    Note over P: 只能看到 Namespace 内的资源
+```
 
 ---
 
@@ -48,6 +94,25 @@ ps aux   # 只能看到自己 namespace 的进程
 
 ### Network Namespace 实战
 
+**VETH Pair 连接示意图：**
+
+```mermaid
+graph LR
+    subgraph Host [Host Network Namespace]
+        A[veth-host<br/>10.0.0.1]
+        B[eth0]
+        B --> C[外部网络]
+    end
+
+    subgraph NS [test-ns Namespace]
+        D[veth1<br/>10.0.0.2]
+        E[lo]
+    end
+
+    A <-->|"虚拟网线"| D
+    A -.-> B
+```
+
 **创建 Network Namespace：**
 ```bash
 # 创建 Network Namespace
@@ -69,6 +134,24 @@ sudo ip netns exec test-ns ip link set veth1 up
 ## 第三部分：手写隔离脚本
 
 ### namespace-isolation.sh
+
+**脚本执行流程：**
+
+```mermaid
+flowchart TD
+    A[开始] --> B[清理旧资源]
+    B --> C[创建 Network Namespace]
+    C --> D[创建 VETH Pair]
+    D --> E[配置 Host 端 IP]
+    E --> F[配置 Namespace 端 IP]
+    F --> G[启用网络接口]
+    G --> H[测试连通性]
+    H --> I{ping 成功?}
+    I -->|是| J[输出成功信息]
+    I -->|否| K[输出错误信息]
+    J --> L[结束]
+    K --> L
+```
 
 ```bash
 #!/bin/bash
