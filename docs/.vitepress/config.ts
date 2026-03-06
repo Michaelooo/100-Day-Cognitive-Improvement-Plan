@@ -39,6 +39,10 @@ export default withMermaid({
         ]
       },
       { 
+        text: '技术笔记',
+        link: '/notes/'
+      },
+      { 
         text: '100天课程',
         link: '/plan-1/100-days-hardcore-dev-plan'
       },
@@ -50,7 +54,16 @@ export default withMermaid({
     
     // 侧边栏 - 动态生成
     sidebar: {
-      '/plan-1/': getSidebar('plan-1')
+      '/plan-1/': getSidebar('plan-1'),
+      '/notes/': [
+        {
+          text: '技术笔记',
+          items: [
+            { text: '首页', link: '/notes/' },
+            { text: 'FRP + SSH 内网穿透实战', link: '/notes/frp-ssh-remote-access' }
+          ]
+        }
+      ]
       // 未来可以在这里添加更多计划的侧边栏
       // '/plan-2/': getSidebar('plan-2')
     },
