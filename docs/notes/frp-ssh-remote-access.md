@@ -58,20 +58,6 @@ serverAddr = "<YOUR_SERVER_IP>"
 serverPort = 7000
 
 [[proxies]]
-name = "<PROXY_NAME>-feishu"
-type = "tcp"
-localIP = "127.0.0.1"
-localPort = 18790
-remotePort = 18889
-
-[[proxies]]
-name = "<PROXY_NAME>-dashboard"
-type = "tcp"
-localIP = "127.0.0.1"
-localPort = 18789
-remotePort = 18888
-
-[[proxies]]
 name = "ssh-remote"
 type = "tcp"
 localIP = "127.0.0.1"
@@ -132,7 +118,7 @@ nc -vz <YOUR_SERVER_IP> 2222
 **现象：**
 
 ```bash
-ssh -p 2222 root@<YOUR_SERVER_IP>
+ssh -p 2222 <USER>@<YOUR_SERVER_IP>
 # 密码输入正确，但一直提示错误
 ```
 
@@ -163,7 +149,7 @@ ssh -vvv localhost -o PasswordAuthentication=no 2>&1 | grep -E "(Offering|Authen
 **关键发现：**
 
 ```
-debug1: Offering public key: /Users/<LOCAL_USER>/.ssh/id_ed25519 ED25519 SHA256:<KEY_FINGERPRINT_A>...
+debug1: Offering public key: ~/.ssh/id_ed25519 ED25519 SHA256:xxx...
 debug3: receive packet: type 51
 debug1: Authentications that can continue: publickey,password,keyboard-interactive
 ```
@@ -173,11 +159,6 @@ debug1: Authentications that can continue: publickey,password,keyboard-interacti
 **根因：**
 
 `authorized_keys` 中的公钥与本地私钥**不匹配**！
-
-| 密钥 | 指纹 |
-|------|------|
-| authorized_keys 中的 | `SHA256:<KEY_FINGERPRINT_B>li7vP1XTFlEpdJkwAD2gkhZ6i0zeauA` |
-| 本地私钥对应的 | `SHA256:<KEY_FINGERPRINT_A>QWjIEA8CQkoHwuEcMdqR9AVo1TTi8FM` |
 
 **解决：**
 
